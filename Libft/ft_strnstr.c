@@ -1,21 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhermann <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/10 03:42:27 by lhermann          #+#    #+#             */
-/*   Updated: 2016/11/10 23:28:45 by lhermann         ###   ########.fr       */
+/*   Created: 2016/11/11 03:48:41 by lhermann          #+#    #+#             */
+/*   Updated: 2016/11/11 04:09:48 by lhermann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
-int		ft_isprint(int c)
+char		*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	else
-		return (0);
+	char	*tmp_s1;
+	size_t	i;
+	size_t	j;
+	int		len_s2;
+
+	i = 0;
+	tmp_s1 = (char *)s1;
+	len_s2 = ft_strlen(s2);
+	if (!len_s2)
+		return ((char *)s1);
+	while (tmp_s1[i] &&i < n)
+	{
+		if (tmp_s1[i] == s2[0])
+		{
+			j = 0;
+			while (tmp_s1[i + j] == s2[j] && (i + j) < n)
+				j++;
+			if (!s2[j])
+				return (tmp_s1[i])
+		}
+		i++;
+	}
+	return (NULL);
 }

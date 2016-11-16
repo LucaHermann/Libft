@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhermann <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 03:40:44 by lhermann          #+#    #+#             */
-/*   Updated: 2016/11/15 00:08:33 by lhermann         ###   ########.fr       */
+/*   Created: 2016/11/16 06:43:14 by lhermann          #+#    #+#             */
+/*   Updated: 2016/11/16 06:52:20 by lhermann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <string.h>
 
-char		*ft_strstr(const char *s1, const char *s2)
+int			ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t			i;
-	size_t			j;
-	size_t			len;
+	unsigned char *s22;
+	unsigned char *s11;
+	size_t		i;
 
+	s22 = (unsigned char *)s2;
+	s11 = (unsigned char *)s1;
 	i = 0;
-	j = 0;
-	len = 0;
-	while (s2[len])
-		len++;
-	if (len == 0)
-		return ((char *)s1);
-	while (s1[i])
+	while (i < n)
 	{
-		while (s1[i + j] == s2[j])
-		{
-			j++;
-			if (j == len)
-				return ((char *)s1 + i);
-		}
-		j = 0;
+		if (s11[i] != s22[i])
+			return (s11[i] - s22[i]);
 		i++;
 	}
-	return (NULL);
+	return (0);
 }

@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhermann <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 03:40:44 by lhermann          #+#    #+#             */
-/*   Updated: 2016/11/15 00:08:33 by lhermann         ###   ########.fr       */
+/*   Created: 2016/11/16 07:13:10 by lhermann          #+#    #+#             */
+/*   Updated: 2016/11/16 07:15:46 by lhermann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
+#include <unistd.h>
 
-char		*ft_strstr(const char *s1, const char *s2)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	size_t			i;
-	size_t			j;
-	size_t			len;
+	int i;
 
 	i = 0;
-	j = 0;
-	len = 0;
-	while (s2[len])
-		len++;
-	if (len == 0)
-		return ((char *)s1);
-	while (s1[i])
+	while (str[i] != '\0')
 	{
-		while (s1[i + j] == s2[j])
-		{
-			j++;
-			if (j == len)
-				return ((char *)s1 + i);
-		}
-		j = 0;
+		ft_putchar_fd(str[i], fd);
 		i++;
 	}
-	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: lhermann <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/16 05:12:10 by lhermann          #+#    #+#             */
-/*   Updated: 2016/11/16 05:15:46 by lhermann         ###   ########.fr       */
+/*   Updated: 2016/11/17 02:12:53 by lhermann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 void		*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char *dest1;
-	char *src1;
-	size_t i;
+	char	*dest1;
+	char	*src1;
+	size_t	i;
 
 	dest1 = (char *)dest;
 	src1 = (char *)src;

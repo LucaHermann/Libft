@@ -6,7 +6,7 @@
 /*   By: lhermann <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/11 01:22:45 by lhermann          #+#    #+#             */
-/*   Updated: 2016/11/11 02:21:49 by lhermann         ###   ########.fr       */
+/*   Updated: 2016/11/16 23:52:09 by lhermann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ size_t			ft_strlcat(char *dst, char const *src, size_t len)
 		i++;
 	}
 	dst[lendst + i] = '\0';
-	return (lendst + lensrc)
+	return (lendst + lensrc);
 }

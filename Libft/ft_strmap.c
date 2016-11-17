@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lhermann <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/11 02:21:59 by lhermann          #+#    #+#             */
-/*   Updated: 2016/11/17 06:07:02 by lhermann         ###   ########.fr       */
+/*   Created: 2016/11/17 04:43:13 by lhermann          #+#    #+#             */
+/*   Updated: 2016/11/17 05:32:56 by lhermann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-char		*ft_strchr(const char *s, int c)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	d;
-	int		i;
+	char	*d;
+	int			i;
 
 	i = 0;
-	d = c;
-	while (s[i] != d)
+	if (!s || !f)
+		return (NULL);
+	if (!(d =(char *)malloc(sizeof(*s) * ft_strlen(s) + 1)))
+		return (NULL);
+	while (s[i])
 	{
-		if (s[i])
-			return (NULL);
+		d[i] = (*f)(s[i]);
+		i++;
 	}
-	return ((char *)(s + i));
+	d[i] = '\0';
+	return (d);
 }

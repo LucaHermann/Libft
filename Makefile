@@ -6,7 +6,7 @@
 #    By: lhermann <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/17 03:00:07 by lhermann          #+#    #+#              #
-#    Updated: 2016/11/23 03:35:37 by lhermann         ###   ########.fr        #
+#    Updated: 2016/11/30 18:39:32 by lhermann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ SRCS =ft_atoi.c\
 	  ft_strsplit.c\
 	  ft_strsub.c\
 	  ft_strtrim.c\
-	  ft_swap.c\
 	  ft_lstnew.c\
 	  ft_lstmap.c\
 	  ft_lstdelone.c\
@@ -75,21 +74,20 @@ SRCS =ft_atoi.c\
 	  ft_lstdel.c\
 	  ft_lstadd.c
 
-OBJS= $(SRCS:.c=.o)
 
-INC =-I./includes
+OBJS= $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(FLGS) $(SRCS) $(INC)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@gcc -c $(FLGS) $(SRCS) $(INC)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
